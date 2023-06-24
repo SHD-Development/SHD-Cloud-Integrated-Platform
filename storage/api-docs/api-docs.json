@@ -1,0 +1,42 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "SHD Cloud Integrated Platform API Documentation",
+        "description": "Official SHD Cloud Integrated Platform Public API Docs",
+        "contact": {
+            "email": "owenliu0924useful@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api"
+        }
+    ],
+    "paths": {
+        "/user/count/total": {
+            "get": {
+                "description": "Get total user count.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/user/count/admin": {
+            "get": {
+                "description": "Get admin user count.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}
