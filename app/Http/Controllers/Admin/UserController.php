@@ -51,7 +51,7 @@ class UserController extends Controller
             'embeds' => [
                 [
                     'title' => "SHD Cloud Integrated Platform 線上整合平台",
-                    'description' => "✅ 用戶已經創建! 他的用戶名稱為 `{$user->name}` 並且他的電子郵件為 `{$user->email}`",
+                    'description' => "`✅` 用戶已經創建! 他的用戶名稱為 `{$user->name}` 並且他的電子郵件為 `{$user->email}`",
                     'color' => '323232',
                 ]
             ],

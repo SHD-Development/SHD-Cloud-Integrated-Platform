@@ -173,6 +173,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\CustomServiceProvider::class,
         L5Swagger\L5SwaggerServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
     ])->toArray(),
 
     /*

@@ -13,16 +13,27 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('儀表板') }}
                     </x-nav-link>
                 </div>
+                <x-nav-link href="{{ route('panelindex') }}">
+                    資源面板
+                </x-nav-link>
                 
+                <x-nav-link href="{{ route('redeemdash') }}">
+                    兌換代碼
+                </x-nav-link>
+                <x-nav-link href="{{ route('daily-reward') }}">
+                    每日獎勵
+                </x-nav-link>
+                <x-nav-link href="{{ route('shop.index') }}">
+                    商店
+                </x-nav-link>
                 @if (auth()->user()->can('access adminui'))
                 <x-nav-link href="{{ route('admin') }}">
-                    Admin
+                    管理員頁面
                 </x-nav-link>
                 @endif
-
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -102,11 +113,14 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('管理帳戶') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('個人資料') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('link_account') }}">
+                                {{ __('帳號綁定') }}
                             </x-dropdown-link>
                             <x-dropdown-link>
                                 您的餘額：$ {{ Auth::user()->balance->amount }}
@@ -114,7 +128,7 @@
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
+                                    {{ __('API金鑰') }}
                                 </x-dropdown-link>
                             @endif
 
@@ -126,7 +140,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('登出') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

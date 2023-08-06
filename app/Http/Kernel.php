@@ -20,6 +20,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
+        
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -63,5 +64,11 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'irapikey' => \App\Http\Middleware\Apikey\CheckInReadApiKey::class,
+        'iwapikey' => \App\Http\Middleware\Apikey\CheckInWriteApiKey::class,
+        'irwapikey' => \App\Http\Middleware\Apikey\CheckInReadWriteApiKey::class,
+        'erapikey' => \App\Http\Middleware\Apikey\CheckExReadApiKey::class,
+        'ewapikey' => \App\Http\Middleware\Apikey\CheckExWriteApiKey::class,
+        'erwapikey' => \App\Http\Middleware\Apikey\CheckExReadWriteApiKey::class,
     ];
 }

@@ -1,15 +1,15 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+        {{ __('連線階段設定') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        {{ __('管理已登入此帳號的裝置或瀏覽器') }}
     </x-slot>
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
-            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+            {{ __('通常來說，您可以在此移除其他連線階段，並且此裝置不會被移除。但您如果是覺得您的帳號被盜用，移除完其他連線階段後也需要更改您的密碼，有其他疑問請開啟客服單。') }}
         </div>
 
         @if (count($this->sessions) > 0)
@@ -39,9 +39,9 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">{{ __('This device') }}</span>
+                                        <span class="text-green-500 font-semibold">{{ __('此裝置') }}</span>
                                     @else
-                                        {{ __('Last active') }} {{ $session->last_active }}
+                                        {{ __('最後活躍時間') }} {{ $session->last_active }}
                                     @endif
                                 </div>
                             </div>
@@ -53,27 +53,27 @@
 
         <div class="flex items-center mt-5">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
-                {{ __('Log Out Other Browser Sessions') }}
+                {{ __('登出其他連線階段') }}
             </x-button>
 
             <x-action-message class="ml-3" on="loggedOut">
-                {{ __('Done.') }}
+                {{ __('已完成') }}
             </x-action-message>
         </div>
 
         <!-- Log Out Other Devices Confirmation Modal -->
         <x-dialog-modal wire:model="confirmingLogout">
             <x-slot name="title">
-                {{ __('Log Out Other Browser Sessions') }}
+                {{ __('登出其他連線階段') }}
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.') }}
+                {{ __('請輸入您的密碼以登出其他連線階段。') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-input type="password" class="mt-1 block w-3/4"
                                 autocomplete="current-password"
-                                placeholder="{{ __('Password') }}"
+                                placeholder="{{ __('密碼') }}"
                                 x-ref="password"
                                 wire:model.defer="password"
                                 wire:keydown.enter="logoutOtherBrowserSessions" />
@@ -84,13 +84,13 @@
 
             <x-slot name="footer">
                 <x-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
+                    {{ __('取消') }}
                 </x-secondary-button>
 
                 <x-button class="ml-3"
                             wire:click="logoutOtherBrowserSessions"
                             wire:loading.attr="disabled">
-                    {{ __('Log Out Other Browser Sessions') }}
+                    {{ __('確認執行') }}
                 </x-button>
             </x-slot>
         </x-dialog-modal>

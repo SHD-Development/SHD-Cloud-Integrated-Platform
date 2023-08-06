@@ -46,3 +46,44 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
+" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@include('sweetalert::alert')
+
+@if (session('success'))
+  <script>
+      Swal.fire({
+          title: '成功啦!',
+          text: '{{ session('success') }}',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: '3000'
+      });
+  </script>
+@endif
+
+  @if (session('error'))
+    <script>
+        Swal.fire({
+            title: '哎呀, 出錯了!',
+            text: '{{ session('error') }}',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: '3000'
+        });
+    </script>
+@endif
+@if (session('info'))
+    <script>
+        Swal.fire({
+            title: '提醒您!',
+            text: '{{ session('info') }}',
+            icon: 'info',
+            showConfirmButton: false,
+            timer: '3000'
+        });
+    </script>
+@endif
