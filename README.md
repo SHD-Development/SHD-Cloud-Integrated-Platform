@@ -8,11 +8,13 @@ SHD Cloud致力於提供免費雲端服務，SHD Cloud線上整合平台是一�
 
 安裝：
 1. 首先請將原代碼下載下來。
-2. 執行 `composer install`
-3. 在 `.env` 以及 `config/scip.php` 檔案更改您的設定
-4. 執行 `php artisan migrate`
-5. 執行 `npm install`
-6. 執行 `npm run dev`
-7. 執行 `php artisan key:generate`
-8. 執行 `php artisan serve`
-9. 伺服器將在網頁端的 8000 Port 運行
+2. 執行 `npm install`
+3. 進到 `app/Providers/AppServiceProvider.php` 把 `boot` 方法下的東西全部註解起來
+4. 執行 `composer install`
+5. 在 `.env` 以及 `config/scip.php` 檔案更改您的設定
+6. 執行 `php artisan migrate:refresh`
+7. 進到 `app/Providers/AppServiceProvider.php` 把 `boot` 方法下的東西全部取消註解
+8. 執行 `npm run dev`
+9. 執行 `php artisan key:generate`
+10. 執行 `php artisan serve`
+11. 伺服器將在網頁端的 8000 Port 運行
