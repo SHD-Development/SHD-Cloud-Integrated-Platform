@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Welcome | SHD Cloud Integrated Platform</title>
 
         <!-- Fonts -->
@@ -130,7 +129,7 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        SHD Cloud Integrated Platform v0.0.1 (PHP v{{ PHP_VERSION }})
+                        SHD Cloud Integrated Platform v0.0.2 (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>

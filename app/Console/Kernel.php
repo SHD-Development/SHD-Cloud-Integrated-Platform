@@ -12,7 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+        $schedule->call('App\Http\Controllers\StockController@updateStockPrices')->everyTenSeconds();
         // $schedule->command('inspire')->hourly();
+        
     }
 
     /**
@@ -24,4 +26,5 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+    
 }

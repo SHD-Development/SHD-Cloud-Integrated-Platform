@@ -1,12 +1,12 @@
 <?PHP 
 return [ 
 'webhook' => [ 
-    'url' => '', 
+    'url' => 'https://discord.com/api/webhooks/0000000000000000000/ThisIsMyWebhookSecret', 
 ],
-'domain' => '',
+'domain' => 'https://example.com',
 'apikey' => '',
 'dashactyl' => [
-    'url' => '',
+    'url' => 'https://example.com',
     'auth' => 'Bearer ',
 ]
 ];

@@ -3,6 +3,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                <div class="shrink-0 flex items-center mr-3">
+                    <a href="{{ route('desktop-app') }}">
+                        <x-button>桌面版</x-button>
+                    </a>
+                </div>
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -28,6 +33,12 @@
                 </x-nav-link>
                 <x-nav-link href="{{ route('shop.index') }}">
                     商店
+                </x-nav-link>
+                <x-nav-link href="{{ route('show-transfer') }}">
+                    轉帳
+                </x-nav-link>
+                <x-nav-link href="{{ route('stock.page') }}">
+                    股票
                 </x-nav-link>
                 @if (auth()->user()->can('access adminui'))
                 <x-nav-link href="{{ route('admin') }}">
@@ -57,17 +68,17 @@
                                 <div class="w-60">
                                     <!-- Team Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Team') }}
+                                        {{ __('管理團隊') }}
                                     </div>
 
                                     <!-- Team Settings -->
                                     <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                        {{ __('Team Settings') }}
+                                        {{ __('團隊設定') }}
                                     </x-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <x-dropdown-link href="{{ route('teams.create') }}">
-                                            {{ __('Create New Team') }}
+                                            {{ __('創建團隊') }}
                                         </x-dropdown-link>
                                     @endcan
 
@@ -76,7 +87,7 @@
                                         <div class="border-t border-gray-200 dark:border-gray-600"></div>
 
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            {{ __('Switch Teams') }}
+                                            {{ __('切換團隊') }}
                                         </div>
 
                                         @foreach (Auth::user()->allTeams() as $team)

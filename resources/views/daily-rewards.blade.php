@@ -72,7 +72,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
           text: '{{ session('success') }}',
           icon: 'success',
           showConfirmButton: false,
-          timer: '3000'
+          timer: '3000',
+          timerProgressBar: true,
       });
   </script>
 @endif
@@ -84,7 +85,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
             text: '{{ session('error') }}',
             icon: 'error',
             showConfirmButton: false,
-            timer: '3000'
+            timer: '3000',
+            timerProgressBar: true,
         });
     </script>
 @endif
@@ -94,7 +96,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
             title: '提醒您!',
             text: '{{ session('info') }}',
             icon: 'info',
-            showConfirmButton: true,
+            showConfirmButton: false,
+            timer: '3000',
+            timerProgressBar: true,
         });
     </script>
 @endif

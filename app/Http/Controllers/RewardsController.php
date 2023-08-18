@@ -42,7 +42,7 @@ class RewardsController extends Controller
             'user_id' => $user->id,
             'claimed_at' => $today,
         ]);
-        $rewardCoins = mt_rand(1, 10) / 100;
+        $rewardCoins = mt_rand(1, 23) / 100;
         $balance = Balance::where('user_id', $user->id)->first();
         $balance->increment('amount', $rewardCoins);
 

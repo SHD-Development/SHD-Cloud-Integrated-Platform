@@ -35,6 +35,9 @@ class SocialController extends Controller
     public function profileLink()
     {
     $userpl = Auth::user();
+    if (!$userpl) {
+        return redirect()->route('login')->with('info', '請先登入帳號');
+    }
     return view('account.link')->with('user',$userpl);
     }
 }

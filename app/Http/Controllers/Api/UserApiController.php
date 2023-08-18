@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 use Spatie\DiscordAlerts\Facades\DiscordAlert;
 use Illuminate\Support\Facades\Http;
 use App\Models\Balance;
-
+use App\Models\Team;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -51,6 +51,11 @@ class UserApiController extends Controller
             'user_id' => $user->id,
             'amount' => 0,
         ]);
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => explode(' ', $user->name, 2)[0]."'s Team",
+            'personal_team' => true,
+        ]));
         Http::post($webhookUrl, [
             'content' => "",
             'embeds' => [

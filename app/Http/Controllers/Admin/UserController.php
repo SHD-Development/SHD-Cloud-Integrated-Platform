@@ -5,7 +5,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\DiscordAlerts\Facades\DiscordAlert;
 use App\Models\Balance;
 use Illuminate\Support\Facades\Http;
-
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -45,6 +45,11 @@ class UserController extends Controller
             'user_id' => $user->id,
             'amount' => 0,
         ]);
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => explode(' ', $user->name, 2)[0]."'s Team",
+            'personal_team' => true,
+        ]));
         Alert::success('Success', 'User created successfully.');
         Http::post($webhookUrl, [
             'content' => "",

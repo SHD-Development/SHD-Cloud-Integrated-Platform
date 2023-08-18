@@ -5,7 +5,7 @@ return [
      * The webhook URLs that we'll use to send a message to Discord.
      */
     'webhook_urls' => [
-        'default' => '',
+        'default' => 'https://discord.com/api/webhooks/1112347230838468678/KUixGxZ3ScFIxVCqEHoi_r-TRsj37S-b7TXkfyAFpeTJrQGEpmu7eLHFp7z-NrEXp2cD',
     ],
 
     /*

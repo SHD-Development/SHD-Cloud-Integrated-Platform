@@ -23,6 +23,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
         <div class="bg-white dark:bg-gray-800 rounded-lg mx-auto flex flex-col justify-center items-center" style="margin-top:3rem; width:70vw; padding:1rem;">
             <h1>{{ $product->name }}</h1>
             <br>
+            <p>{{ $product->description }}</p>
+            <br>
             <p>價格：{{ $product->price }} $IPC</p>
             <br>
             @if ($hasDiscordId)
@@ -53,7 +55,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
           text: '{{ session('success') }}',
           icon: 'success',
           showConfirmButton: false,
-          timer: '5000'
+          timer: '5000',
+          timerProgressBar: true,
       });
   </script>
 @endif
@@ -65,7 +68,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
             text: '{{ session('error') }}',
             icon: 'error',
             showConfirmButton: false,
-            timer: '5000'
+            timer: '5000',
+            timerProgressBar: true,
         });
     </script>
 @endif
@@ -76,7 +80,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
             text: '{{ session('info') }}',
             icon: 'info',
             showConfirmButton: false,
-            timer: '5000'
+            timer: '5000',
+            timerProgressBar: true,
         });
     </script>
 @endif

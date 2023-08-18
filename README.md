@@ -3,7 +3,7 @@ SHD Cloud致力於提供免費雲端服務，SHD Cloud線上整合平台是一�
 此專案使用 Laravel 來進行製作。
 目前還在進行開發。
 
-我們還有很多未完成的地方，並且技術性沒到我們的最高標準，建議您先不用下載使用，這只是一個完成約 25% 的專案。
+我們還有很多未完成的地方，並且技術性沒到我們的最高標準，建議您先不用下載使用，這只是一個完成約 30% 的專案。
 代碼可能有遺失，缺漏，累贅等等，我們將在以後進行修復。
 
 ## 使用教學
@@ -24,10 +24,11 @@ SHD Cloud致力於提供免費雲端服務，SHD Cloud線上整合平台是一�
 5. 在 `.env` 以及 `config/scip.php` 檔案更改您的設定
 6. 執行 `php artisan migrate:refresh`
 7. 進到 `app/Providers/AppServiceProvider.php` 把 `boot` 方法下的東西全部取消註解
-8. 執行 `npm run dev`
-9. 執行 `php artisan key:generate`
-10. 執行 `php artisan serve`
-11. 伺服器將在網頁端的 8000 Port 運行
+8. 執行 `php artisan scip:initailize`
+9. 執行 `npm run dev`
+10. 執行 `php artisan key:generate`
+11. 執行 `php artisan serve`
+12. 伺服器將在網頁端的 8000 Port 運行
 
 ### API 的使用
 1. 您需要先在資料庫創建一個 API Key 以進行使用。

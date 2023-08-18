@@ -127,7 +127,8 @@ flex-direction: row;
             text: '{{ session('success') }}',
             icon: 'success',
             showConfirmButton: false,
-            timer: 3000 
+            timer: 3000,
+            timerProgressBar: true,
         });
     </script>
 @endif

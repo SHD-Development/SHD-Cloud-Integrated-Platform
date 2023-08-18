@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -27,6 +27,14 @@ class User extends Authenticatable
 {
     return $this->hasOne(Balance::class);
 }
+    public function getDiscordIdAttribute()
+    {
+        return $this->attributes['discord_id'] ?? null;
+    }
+    public function stocks()
+    {
+        return $this->hasMany(StockHolding::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -34,7 +42,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'discord_id',
     ];
 
     /**
@@ -58,6 +66,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -65,5 +75,6 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'discord_id'
     ];
 }

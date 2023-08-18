@@ -8,6 +8,8 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\RewardsController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransferController;
+use App\Http\Controllers\DownloadController;
 
 
 
@@ -34,14 +36,15 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/dashboard/stock', [StockController::class, 'stock'])
-    ->name('stockdash');
     Route::get('/dashboard/redeem', function () {
         return view('code');
     })->name('redeemdash');
     Route::get('/panel', function () {
         return view('panel.index');
     })->name('panelindex');
+    Route::get('/app/desktop', function () {
+        return view('desktop-app-landing');
+    })->name('desktop-app');
 });
 Route::get('/admin', function () {
     return view('admin.gate');
@@ -68,10 +71,22 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::post('/shop/buy/{product}', [ShopController::class, 'buyProduct'])->name('shop.buy');
-Route::get('/shop/product/proceed/ipctosrm', [ProductController::class, 'proceedSRM'])->name('shop.proceed.srm');
+Route::get('/shop/product/proceed/ipctosrm', [ProductController::class, 'proceedSRM'])->name('ipctosrm');
 
 // Discord登入
 Route::get('link/discord', [SocialController::class, 'redirectToProvider']);
 Route::get('link/discord/callback', [SocialController::class, 'handleProviderCallback']);
 Route::get('link/account', [SocialController::class, 'profileLink'])->name('link_account');
 
+// 股票
+Route::get('/stock', [StockController::class, 'stockPage'])->name('stock.page');
+    
+Route::post('/stock/buy-stock', [StockController::class, 'buyStock'])->name('buy-stock');
+    
+Route::post('/stock/sell-stock', [StockController::class, 'sellStock'])->name('sell-stock');
+
+// 轉帳
+Route::get('/transfer', [TransferController::class, 'showTransferPage'])->name('show-transfer');
+Route::post('/transfer/process', [TransferController::class, 'processTransfer'])->name('process-transfer');
+
+Route::get('/download-file/{filename}', [DownloadController::class, 'downloadFile'])->name('download-file');

@@ -48,8 +48,9 @@ class ShopController extends Controller
             'quantity' => $quantity,
             'discord_id' => $discord_id,
             'price' => $totalPrice,
+            'product' => $product,
         ];
         Session::put('variables', $variables);
-        return redirect()->route('shop.proceed.srm');
+        return redirect()->route($product->route);
     }
 }
